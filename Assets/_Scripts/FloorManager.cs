@@ -63,8 +63,9 @@ public class FloorManager : MonoBehaviour
 
                 tileList[tileIndex].GetComponent<TileBehaviour>().ArrangeTile();
                 tileIndex++;
-                
-                matIndex = GetMaterialIndex();
+
+                if (i < 23)
+                    matIndex = GetMaterialIndex();
             }
         }
     }

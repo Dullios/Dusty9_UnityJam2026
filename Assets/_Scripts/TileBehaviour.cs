@@ -6,9 +6,16 @@ using UnityEngine;
 public class TileBehaviour : MonoBehaviour
 {
     public int tileValue;
+    [SerializeField] MeshRenderer meshRenderer;
     public List<GameObject> wedgeList = new List<GameObject>();
-
     public float radius = 15;
+
+    public void SetValue(int value)
+    {
+        tileValue = value;
+
+        meshRenderer.material.mainTextureOffset = new Vector2(value * 0.1f, 0);
+    }
 
     public void ArrangeTile()
     {

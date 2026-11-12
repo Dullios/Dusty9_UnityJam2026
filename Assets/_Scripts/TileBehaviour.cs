@@ -10,6 +10,12 @@ public class TileBehaviour : MonoBehaviour
     public List<GameObject> wedgeList = new List<GameObject>();
     public float radius = 15;
 
+    private void Update()
+    {
+        Vector3 lookDirection = transform.position - Camera.main.transform.position;
+        transform.GetChild(0).rotation = Quaternion.LookRotation(lookDirection);
+    }
+
     public void SetValue(int value)
     {
         tileValue = value;
@@ -21,14 +27,14 @@ public class TileBehaviour : MonoBehaviour
     {
         transform.position = CalculateArcPosition();
 
-        Quaternion look = Quaternion.LookRotation(Vector3.zero - transform.position);
-        transform.rotation = look;
-        transform.position = new Vector3
-        (
-            transform.position.x,
-            0.15f,
-            transform.position.z
-        );
+        //Quaternion look = Quaternion.LookRotation(Vector3.zero - transform.position);
+        //transform.rotation = look;
+        //transform.position = new Vector3
+        //(
+        //    transform.position.x,
+        //    0.15f,
+        //    transform.position.z
+        //);
     }
 
     Vector3 CalculateArcPosition()

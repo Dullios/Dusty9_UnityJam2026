@@ -41,11 +41,11 @@
   <Project Path="Unity.StarterAssets.Editor.csproj" />
   <Project Path="Gilzoide.SqliteNet.csproj" />
   <Project Path="Unity.VisualScripting.Shared.Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.StarterAssets.csproj" />
   <Project Path="Unity.EditorCoroutines.Editor.csproj" />
   <Project Path="Unity.InputSystem.ForUI.Editor.csproj" />
   <Project Path="Unity.CollabProxy.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Gilzoide.SqliteNet.Tests.Editor.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="Unity.InputSystem.DocCodeSamples.csproj" />

@@ -48,4 +48,9 @@ public class GameManager : MonoBehaviour
         targetNumber = value;
         numberDisplay.GetComponent<TextMeshProUGUI>().text = targetNumber.ToString();
     }
+
+    public bool CheckNumber(int number)
+    {
+        return number == targetNumber;
+    }
 }

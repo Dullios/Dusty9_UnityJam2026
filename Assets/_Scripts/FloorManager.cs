@@ -12,13 +12,14 @@ public class FloorManager : MonoBehaviour
     public GameObject numberTile;
     List<GameObject> tileList = new List<GameObject>();
     List<int> tileValues = new List<int>();
+    List<int> tileValTemp = new List<int>();
 
     const int wedgeCount = 24;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for(int i = 1; i <= 9; i++)
+        for(int i = 1; i <= 24; i++)
         {
             tileValues.Add(i);
         }
@@ -51,12 +52,15 @@ public class FloorManager : MonoBehaviour
         }
     }
 
-    int AssignTileValue()
+    void SetTempValueList()
     {
-        List<int> tileValTemp = new List<int>();
+        tileValTemp.Clear();
         foreach (int val in tileValues)
             tileValTemp.Add(val);
+    }
 
+    int GetNumberForTile()
+    {
         int value = tileValTemp[Random.Range(0, tileValTemp.Count)];
         tileValTemp.Remove(value);
 
@@ -70,6 +74,7 @@ public class FloorManager : MonoBehaviour
         int step = 0;
 
         int tileIndex = 0;
+        SetTempValueList();
         TileBehaviour _tileBehaviour = tileList[tileIndex].GetComponent<TileBehaviour>();
 
         matIndexList.Clear();
@@ -93,15 +98,19 @@ public class FloorManager : MonoBehaviour
             {
                 step = 0;
 
-                _tileBehaviour.SetValue(AssignTileValue());
+                _tileBehaviour.SetValue(GetNumberForTile());
                 _tileBehaviour.ArrangeTile();
                 tileIndex++;
-                _tileBehaviour = tileList[tileIndex].GetComponent<TileBehaviour>();
-
+                
                 if (i < 23)
+                {
+                    _tileBehaviour = tileList[tileIndex].GetComponent<TileBehaviour>();
                     matIndex = GetMaterialIndex();
+                }
             }
         }
+
+        GameManager.Instance.SetTargetNumber(tileList[Random.Range(0, tileList.Count)].GetComponent<TileBehaviour>().tileValue);
     }
 
     int GetMaterialIndex()

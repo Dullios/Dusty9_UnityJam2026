@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Instance
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    #endregion
+
+    [SerializeField] int targetNumber;
+    [SerializeField] GameObject numberDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -37,5 +43,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    
+    public void SetTargetNumber(int value)
+    {
+        targetNumber = value;
+        numberDisplay.GetComponent<TextMeshProUGUI>().text = targetNumber.ToString();
+    }
 }

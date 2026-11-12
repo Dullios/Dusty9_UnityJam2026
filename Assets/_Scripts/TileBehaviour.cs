@@ -14,7 +14,7 @@ public class TileBehaviour : MonoBehaviour
     {
         tileValue = value;
 
-        meshRenderer.material.mainTextureOffset = new Vector2(value * 0.1f, 0);
+        meshRenderer.material.mainTextureOffset = new Vector2(value * 0.04f, 0);
     }
 
     public void ArrangeTile()

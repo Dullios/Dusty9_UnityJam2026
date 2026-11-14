@@ -7,6 +7,7 @@ public class TileBehaviour : MonoBehaviour
 {
     public int tileValue;
     [SerializeField] MeshRenderer meshRenderer;
+    public int wedgeCount;
     public List<GameObject> wedgeList = new List<GameObject>();
     public float radius = 15;
 

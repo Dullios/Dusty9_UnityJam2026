@@ -31,16 +31,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] int targetNumber;
     [SerializeField] GameObject numberDisplay;
 
+    [SerializeField] int luckyNumber;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        luckyNumber = Random.Range(1, 25);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SetTargetNumber(int value)
@@ -49,8 +51,19 @@ public class GameManager : MonoBehaviour
         numberDisplay.GetComponent<TextMeshProUGUI>().text = targetNumber.ToString();
     }
 
+    public void SetTargetNumber()
+    {
+        targetNumber = luckyNumber;
+        numberDisplay.GetComponent<TextMeshProUGUI>().text = targetNumber.ToString();
+    }
+
     public bool CheckNumber(int number)
     {
         return number == targetNumber;
+    }
+
+    public bool CheckLuckyNumber(int num)
+    {
+        return num == luckyNumber;
     }
 }
